@@ -5,6 +5,7 @@ import { LocalServer } from '../../../../remote/src/models/sharedInterfaces';
 import { Local } from 'protractor/built/driverProviders';
 import { Router } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
+import swal, { SweetAlertResult } from 'sweetalert2';
 
 @Component({
   selector: 'app-servers',
@@ -102,7 +103,10 @@ export class ServersComponent implements OnInit {
 
         try {
           const apikey = await this.http.post<string>(`${this.servers_url}/auth/${server.localServerId}`, {}).toPromise();
-          alert(apikey);
+          swal.fire({type: 'info', title: 'key for authentication' , showCloseButton: true, html:   
+          apikey + '<br/><br/>'  + 
+           '<b> CAUTION: you may be disconnected now  </b>'})
+           
         }
         catch (error) {
 

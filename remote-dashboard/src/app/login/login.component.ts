@@ -3,6 +3,7 @@ import { loginReq } from "../loginRequest";
 import { HttpClient } from '@angular/common/http';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -31,6 +32,8 @@ public async postLoginRequest(loginRequest: loginReq){
     this.router.navigate(['/dashboard/servers']);
   }
    catch (error) {
+    Swal.fire({type: 'error', title: 'Failed to connect :( ' , showCloseButton: true, html:   
+     '<b> please check your details </b>'})
     console.log(error);
   }
 } 
