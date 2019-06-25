@@ -1,0 +1,35 @@
+<div id="servers-page">
+  <!-- <img src="assets/iot-background.png">  -->
+  <ul class="servers">
+    <li style="width: 300px;" *ngFor="let server of servers" [class.selected]="server === selectedServer"
+      (click)="onSelect(server)">
+      <span class="badge" style="margin: auto; width: 40px;"> {{server.localServerId}}</span>
+      <span style="margin: auto; width: 150px;"> {{server.displayName}}</span>
+      <span [ngClass]="server.connectionStatus === true ? 'status-on' : 'status-off'">&nbsp; &nbsp; &nbsp; </span>
+    </li>
+  </ul>
+  <div *ngIf="selectedServer">
+    <h2>{{selectedServer.displayName}}</h2>
+    <div><span>id: </span>{{selectedServer.localServerId}}</div>
+    <div><span>macAddress: </span>{{selectedServer.macAddress}}</div>
+    <div><span>Connection Status: </span>{{selectedServer.connectionStatus}}</div>
+    <div>
+      <label>edit name:
+        <input [(ngModel)]="selectedServer.displayName" placeholder="enter new name here" />
+      </label>
+      <label>edit users:
+        <input [(ngModel)]="selectedServer.validUsers" placeholder="update users here" />
+      </label>
+      <button (click)="editServer(selectedServer)">Edit Server</button>
+      <button (click)="authKeyRequest(selectedServer)">auth</button>
+      <button class="delete-button" (click)="deleteServerRequest(selectedServer)"></button>
+    </div>
+  </div>
+  <div id="inputServer">
+    <label>Enter name: <input type="field" [(ngModel)]="NewServer.displayName" /></label>
+    <label>Enter Mac: <input type="field" [(ngModel)]="NewServer.macAddress" /></label>
+    <label>Enter users: <input type="field" [(ngModel)]="NewServer.validUsers" /></label>
+    <button (click)="postNewServer(NewServer)">Add Server</button>
+  </div>
+
+</div>
