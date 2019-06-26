@@ -13,7 +13,7 @@ export class LoginComponent {
 
   public login_url = "/API/administration/auth/login";
 
-  private myLoginReq: loginReq = {
+  public myLoginReq: loginReq = {
     email: null,
     password: null
   }
