@@ -41,7 +41,7 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"login-page\" style=\"text-align:center\">\n    <h1>\n        You don't look like a manager!\n        Prove it!\n    </h1>\n    <img id=\"haim\" width=\"200\" height=\"220\" alt=\"casanet REAL Logo\" src=\"assets/28386247.jpg\">\n<ul>\n    <li>\n        <div class=\"container\">\n            <ul>\n                <li>\n                    <label for=\"email\"><b>Email</b></label>\n                    <input type=\"text\" placeholder=\"Enter Email\" [(ngModel)]=\"myLoginReq.email\">\n                </li>\n                <li>\n                    <label for=\"psw\"><b>Password</b></label>\n                    <input type=\"password\" placeholder=\"Enter Password\" [(ngModel)]=\"myLoginReq.password\">\n                </li>\n                <button (click)=\"postLoginRequest(myLoginReq)\">\n                </button>\n            </ul>\n        </div>\n    </li>\n</ul>\n</div>\n\n\n<!-- <div class=\"container\">\n<ul>\n  <li>\n      <label for=\"email\"><b>Email</b></label>\n      <input type=\"text\" placeholder=\"Enter Email\" [(ngModel)]=\"myLoginReq.email\">\n  </li>\n  <li>\n      <label for=\"psw\"><b>Password</b></label>\n      <input type=\"password\" placeholder=\"Enter Password\" [(ngModel)] =\"myLoginReq.password\">\n  </li>\n    <button (click)=\"postLoginRequest(myLoginReq)\">\n    </button>\n</ul>\n</div> -->"
+module.exports = "<div id=\"login-page\" style=\"text-align:center\">\n    <h1>\n        You don't look like a manager!\n        Prove it!\n    </h1>\n    <!-- <img id=\"haim\" width=\"200\" height=\"220\" alt=\"casanet REAL Logo\" src=\"assets/28386247.jpg\"> -->\n    <div class=\"form-style-8\">\n        <h2>Login to your account</h2>\n        <form>\n                    <label for=\"email\"><b>Email</b></label>\n                    <input type=\"text\" placeholder=\"Enter Email\" name =\"filed\" [(ngModel)]=\"myLoginReq.email\">\n                    <label for=\"psw\"><b>Password</b></label>\n                    <input type=\"password\" placeholder=\"Enter Password\" name =\"filed2\" [(ngModel)]=\"myLoginReq.password\">\n                <button id=\"submit\" (click)=\"postLoginRequest(myLoginReq)\"> Sign in\n                </button>\n        </form>\n        </div>\n</div>\n\n\n<!-- <div class=\"container\">\n<ul>\n  <li>\n      <label for=\"email\"><b>Email</b></label>\n      <input type=\"text\" placeholder=\"Enter Email\" [(ngModel)]=\"myLoginReq.email\">\n  </li>\n  <li>\n      <label for=\"psw\"><b>Password</b></label>\n      <input type=\"password\" placeholder=\"Enter Password\" [(ngModel)] =\"myLoginReq.password\">\n  </li>\n    <button (click)=\"postLoginRequest(myLoginReq)\">\n    </button>\n</ul>\n</div> -->"
 
 /***/ }),
 
@@ -52,7 +52,7 @@ module.exports = "<div id=\"login-page\" style=\"text-align:center\">\n    <h1>\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"servers-page\">\n  <!-- <img src=\"assets/iot-background.png\">  -->\n  <ul class=\"servers\">\n    <li style=\"width: 300px;\" *ngFor=\"let server of servers\" [class.selected]=\"server === selectedServer\"\n      (click)=\"onSelect(server)\">\n      <span class=\"badge\" style=\"margin: auto; width: 40px;\"> {{server.localServerId}}</span>\n      <span style=\"margin: auto; width: 150px;\"> {{server.displayName}}</span>\n      <span [ngClass]=\"server.connectionStatus === true ? 'status-on' : 'status-off'\">&nbsp; &nbsp; &nbsp; </span>\n    </li>\n  </ul>\n  <div *ngIf=\"selectedServer\">\n    <h2>{{selectedServer.displayName}}</h2>\n    <div><span>id: </span>{{selectedServer.localServerId}}</div>\n    <div><span>macAddress: </span>{{selectedServer.macAddress}}</div>\n    <div><span>Connection Status: </span>{{selectedServer.connectionStatus}}</div>\n    <div>\n      <label>edit name:\n        <input [(ngModel)]=\"selectedServer.displayName\" placeholder=\"enter new name here\" />\n      </label>\n      <label>edit users:\n        <input [(ngModel)]=\"selectedServer.validUsers\" placeholder=\"update users here\" />\n      </label>\n      <button (click)=\"editServer(selectedServer)\">Edit Server</button>\n      <button (click)=\"authKeyRequest(selectedServer)\">auth</button>\n      <button class=\"delete-button\" (click)=\"deleteServerRequest(selectedServer)\"></button>\n    </div>\n  </div>\n  <div id=\"inputServer\">\n    <label>Enter name: <input type=\"field\" [(ngModel)]=\"NewServer.displayName\" /></label>\n    <label>Enter Mac: <input type=\"field\" [(ngModel)]=\"NewServer.macAddress\" /></label>\n    <label>Enter users: <input type=\"field\" [(ngModel)]=\"NewServer.validUsers\" /></label>\n    <button (click)=\"postNewServer(NewServer)\">Add Server</button>\n  </div>\n\n</div>"
+module.exports = "<div id=\"servers-page\">\n    <div id=\"inputServer\">\n        <button style=\"width: 300px;\" (click)=\"postNewServer()\">Add new server</button>\n      </div>\n  <ul class=\"servers\">\n    <li style=\"width: 300px;\" *ngFor=\"let server of servers\" [class.selected]=\"server === selectedServer\"\n      (click)=\"onSelect(server)\">\n      <span class=\"badge\" style=\"margin: auto; width: 40px;\"> \n        <span [ngClass]=\"server.connectionStatus === true ? 'status-on' : 'status-off'\">\n          &nbsp; &nbsp; &nbsp; </span>\n    </span>\n      <span style=\"margin: auto; width: 150px;\">    {{server.displayName}}      \n         <button class=\"delete-button\" (click)=\"deleteServerRequest(selectedServer)\"></button>\n         <button class=\"auth-button\" (click)=\"authKeyRequest(selectedServer)\"></button>\n      </span>\n    </li>\n  </ul>\n  <div *ngIf=\"selectedServer\">\n    <h2> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{selectedServer.displayName}}</h2>\n    <div><span> &nbsp; &nbsp; &nbsp; id: </span>{{selectedServer.localServerId}}</div>\n    <div><span> &nbsp; &nbsp; &nbsp; macAddress: </span>{{selectedServer.macAddress}}</div>\n    <div>\n        <form action=\"#\" class=\"simple-form\">\n            <input class=\"simple-form input\" name=\"Name\" [(ngModel)]=\"selectedServer.displayName\" placeholder=\"Edit Name\" >\n            <input class=\"simple-form input\" name=\"Users\" [(ngModel)]=\"selectedServer.validUsers\" placeholder=\"Edit Users\" >\n          </form>\n      &nbsp; &nbsp; &nbsp;\n      <button id=\"edit-server\" (click)=\"editServer(selectedServer)\">Edit Server</button>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -229,8 +229,8 @@ let LoginComponent = class LoginComponent {
         this.router = router;
         this.login_url = "/API/administration/auth/login";
         this.myLoginReq = {
-            email: "",
-            password: "" //"casanet"
+            email: null,
+            password: null
         };
     }
     postLoginRequest(loginRequest) {
@@ -328,28 +328,71 @@ let ServersComponent = class ServersComponent {
             this.servers.forEach((server) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
                 if (ServerToDelete.localServerId == server.localServerId) {
                     try {
-                        yield this.http.delete(this.servers_url + "/" + ServerToDelete.localServerId).toPromise();
+                        sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({
+                            title: 'Are you sure?',
+                            text: "You won't be able to revert this!",
+                            type: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, delete it!'
+                        }).then((result) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                            if (result.value) {
+                                yield this.http.delete(this.servers_url + "/" + ServerToDelete.localServerId).toPromise();
+                                sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire('Deleted!', 'The server has been deleted.', 'success');
+                            }
+                        }));
                     }
                     catch (error) { }
                 }
             }));
         });
     }
-    postNewServer(NewServer) {
+    postNewServer() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            try {
-                yield this.http.post(this.servers_url, {
-                    displayName: NewServer.displayName,
-                    localServerId: NewServer.localServerId,
-                    macAddress: NewServer.macAddress,
-                    validUsers: NewServer.validUsers,
-                    connectionStatus: NewServer.connectionStatus
-                }).toPromise();
-                this.servers.push(NewServer);
-            }
-            catch (error) {
-                console.log(error);
-            }
+            sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
+                input: 'text',
+                confirmButtonText: 'Next &rarr;',
+                showCancelButton: true,
+                progressSteps: ['name', 'Mac Address', 'Users']
+            }).queue([
+                {
+                    title: 'Enter Name',
+                    text: this.NewServer.displayName
+                },
+                {
+                    title: 'Enter Mac Address',
+                    text: this.NewServer.macAddress
+                },
+                {
+                    title: 'Enter Users',
+                    text: this.NewServer.validUsers[0]
+                }
+            ]).then((result) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                if (result.value) {
+                    try {
+                        yield this.http.post(this.servers_url, {
+                            displayName: result.value[0],
+                            localServerId: "",
+                            macAddress: result.value[1],
+                            validUsers: result.value[2],
+                            connectionStatus: false
+                        }).toPromise();
+                        this.servers.push(this.NewServer);
+                        this.NewServer = null;
+                        sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({
+                            title: 'All done!',
+                            html: 'Your Server: <pre><code>' +
+                                JSON.stringify(result.value) +
+                                '</code></pre>',
+                            confirmButtonText: 'Lovely!'
+                        });
+                    }
+                    catch (error) {
+                        console.log(error);
+                    }
+                }
+            }));
         });
     }
     editServer(server) {
@@ -370,9 +413,21 @@ let ServersComponent = class ServersComponent {
             this.servers.forEach((serv) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
                 if (serv.localServerId == server.localServerId) {
                     try {
-                        const apikey = yield this.http.post(`${this.servers_url}/auth/${server.localServerId}`, {}).toPromise();
-                        sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({ type: 'info', title: 'key for authentication', showCloseButton: true, html: apikey + '<br/><br/>' +
-                                '<b> CAUTION: you may be disconnected now  </b>' });
+                        sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({
+                            title: 'Are you sure?',
+                            text: "You won't be able to revert this!",
+                            type: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, generate key!'
+                        }).then((result) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                            if (result.value) {
+                                const apikey = yield this.http.post(`${this.servers_url}/auth/${server.localServerId}`, {}).toPromise();
+                                sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({ type: 'info', title: 'key for authentication', showCloseButton: true, html: apikey + '<br/><br/>' +
+                                        '<b> CAUTION: you may be disconnected now  </b>' });
+                            }
+                        }));
                     }
                     catch (error) {
                     }

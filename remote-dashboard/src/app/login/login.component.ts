@@ -12,10 +12,10 @@ import Swal from 'sweetalert2';
 export class LoginComponent {
 
   public login_url = "/API/administration/auth/login";
-  private 
-  myLoginReq: loginReq = {
-    email: "",//"f8a9632f97ff@casa-net.online",
-    password: ""//"casanet"
+
+  private myLoginReq: loginReq = {
+    email: null,
+    password: null
   }
 
   constructor(private http: HttpClient, private router: Router) { }

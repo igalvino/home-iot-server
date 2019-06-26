@@ -3,25 +3,18 @@
         You don't look like a manager!
         Prove it!
     </h1>
-    <img id="haim" width="200" height="220" alt="casanet REAL Logo" src="assets/28386247.jpg">
-<ul>
-    <li>
-        <div class="container">
-            <ul>
-                <li>
+    <!-- <img id="haim" width="200" height="220" alt="casanet REAL Logo" src="assets/28386247.jpg"> -->
+    <div class="form-style-8">
+        <h2>Login to your account</h2>
+        <form>
                     <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" [(ngModel)]="myLoginReq.email">
-                </li>
-                <li>
+                    <input type="text" placeholder="Enter Email" name ="filed" [(ngModel)]="myLoginReq.email">
                     <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" [(ngModel)]="myLoginReq.password">
-                </li>
-                <button (click)="postLoginRequest(myLoginReq)">
+                    <input type="password" placeholder="Enter Password" name ="filed2" [(ngModel)]="myLoginReq.password">
+                <button id="submit" (click)="postLoginRequest(myLoginReq)"> Sign in
                 </button>
-            </ul>
+        </form>
         </div>
-    </li>
-</ul>
 </div>
 
 

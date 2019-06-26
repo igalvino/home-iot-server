@@ -1,35 +1,31 @@
 <div id="servers-page">
-  <!-- <img src="assets/iot-background.png">  -->
+    <div id="inputServer">
+        <button style="width: 300px;" (click)="postNewServer()">Add new server</button>
+      </div>
   <ul class="servers">
     <li style="width: 300px;" *ngFor="let server of servers" [class.selected]="server === selectedServer"
       (click)="onSelect(server)">
-      <span class="badge" style="margin: auto; width: 40px;"> {{server.localServerId}}</span>
-      <span style="margin: auto; width: 150px;"> {{server.displayName}}</span>
-      <span [ngClass]="server.connectionStatus === true ? 'status-on' : 'status-off'">&nbsp; &nbsp; &nbsp; </span>
+      <span class="badge" style="margin: auto; width: 40px;"> 
+        <span [ngClass]="server.connectionStatus === true ? 'status-on' : 'status-off'">
+          &nbsp; &nbsp; &nbsp; </span>
+    </span>
+      <span style="margin: auto; width: 150px;">    {{server.displayName}}      
+         <button class="delete-button" (click)="deleteServerRequest(selectedServer)"></button>
+         <button class="auth-button" (click)="authKeyRequest(selectedServer)"></button>
+      </span>
     </li>
   </ul>
   <div *ngIf="selectedServer">
-    <h2>{{selectedServer.displayName}}</h2>
-    <div><span>id: </span>{{selectedServer.localServerId}}</div>
-    <div><span>macAddress: </span>{{selectedServer.macAddress}}</div>
-    <div><span>Connection Status: </span>{{selectedServer.connectionStatus}}</div>
+    <h2> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{selectedServer.displayName}}</h2>
+    <div><span> &nbsp; &nbsp; &nbsp; id: </span>{{selectedServer.localServerId}}</div>
+    <div><span> &nbsp; &nbsp; &nbsp; macAddress: </span>{{selectedServer.macAddress}}</div>
     <div>
-      <label>edit name:
-        <input [(ngModel)]="selectedServer.displayName" placeholder="enter new name here" />
-      </label>
-      <label>edit users:
-        <input [(ngModel)]="selectedServer.validUsers" placeholder="update users here" />
-      </label>
-      <button (click)="editServer(selectedServer)">Edit Server</button>
-      <button (click)="authKeyRequest(selectedServer)">auth</button>
-      <button class="delete-button" (click)="deleteServerRequest(selectedServer)"></button>
+        <form action="#" class="simple-form">
+            <input class="simple-form input" name="Name" [(ngModel)]="selectedServer.displayName" placeholder="Edit Name" >
+            <input class="simple-form input" name="Users" [(ngModel)]="selectedServer.validUsers" placeholder="Edit Users" >
+          </form>
+      &nbsp; &nbsp; &nbsp;
+      <button id="edit-server" (click)="editServer(selectedServer)">Edit Server</button>
     </div>
   </div>
-  <div id="inputServer">
-    <label>Enter name: <input type="field" [(ngModel)]="NewServer.displayName" /></label>
-    <label>Enter Mac: <input type="field" [(ngModel)]="NewServer.macAddress" /></label>
-    <label>Enter users: <input type="field" [(ngModel)]="NewServer.validUsers" /></label>
-    <button (click)="postNewServer(NewServer)">Add Server</button>
-  </div>
-
 </div>

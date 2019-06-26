@@ -35,14 +35,28 @@ input[type=text], input[type=password], input[type=field] {
 
 
   #login-page {
-    background-image: url("./assets/wechat.svg");
+    background-image: url("./assets/casanet.png");
+    background-size: cover;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position:absolute;
+    left:0;
+    right:0; 
+    height: 100%;
     
   }
 
+  /* #login-page .background-image{
+    background-size: 30px 30px;
+  } */
+
   #servers-page {
-    background-image: url("./assets/iot-background.png"); 
+    background-image: url("./assets/casanet.png");
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-size: cover;
+    position:absolute;
+    left:0;
+    right:0; 
+    height: 100%;
   }
 
   #servers-page img{
@@ -60,11 +74,21 @@ input[type=text], input[type=password], input[type=field] {
     background-color: #CFD8DC !important;
     color: white;
   }
+
+
   .servers {
     margin: 0 0 2em 0;
     list-style-type: none;
     padding: 0;
     width: 100px;
+  }
+
+  #edit-server{
+    width: 150px;
+    background: darkgreen;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
   }
   .servers li {
     cursor: pointer;
@@ -123,5 +147,106 @@ input[type=text], input[type=password], input[type=field] {
     background:  url("./assets/DeleteButton.png");
     background-size: 15px 15px; 
     background-repeat: no-repeat;
-
+    inline-size: min-content;
   }
+
+  .auth-button{
+    background:  url("./assets/key.png");
+    background-size: 15px 15px; 
+    background-repeat: no-repeat;
+    inline-size: min-content;
+  }
+
+
+  .form-style-8{
+    font-family: 'Open Sans Condensed', arial, sans;
+    width: 500px;
+    padding: 30px;
+    background: #FFFFFF;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+  
+  }
+  .form-style-8 h2{
+    background: #4D4D4D;
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #797979;
+    font-size: 18px;
+    font-weight: 100;
+    padding: 20px;
+    margin: -30px -30px 30px -30px;
+  }
+  .form-style-8 input[type="text"],
+  .form-style-8 input[type="date"],
+  .form-style-8 input[type="datetime"],
+  .form-style-8 input[type="email"],
+  .form-style-8 input[type="number"],
+  .form-style-8 input[type="search"],
+  .form-style-8 input[type="time"],
+  .form-style-8 input[type="url"],
+  .form-style-8 input[type="password"],
+  .form-style-8 textarea,
+  .form-style-8 select 
+  {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+  }
+  .form-style-8 textarea{
+    resize:none;
+    overflow: hidden;
+  }
+  
+  #submit{
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color: #2CBBBB;
+    border: 1px solid #27A0A0;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .form-style-8 input[type="button"]:hover, 
+  .form-style-8 input[type="submit"]:hover {
+    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color:#34CACA;
+  }
+
+  html, body {
+    margin: 0;
+    height: 100%;
+}
+
+.simple-form {
+  display: flex;
+  overflow-y: scroll;
+  padding-bottom: 1.25rem;
+}
+.simple-form input {
+  margin: 0 .25rem;
+  width: 100px;
+  height: 15px;
+  border: 1px solid #eee;
+  border-left: 3px solid;
+  border-radius: 5px;
+  transition: border-color .5s ease-out;
+}
